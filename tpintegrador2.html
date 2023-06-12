@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>TPIntegrador2</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="tpintegrador2.js"></script>
+  </head>
+
+  <body>
+    <!--Barra de Navegación-->
+    <header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top fixed-top">
+      <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#opciones">
+        <span class="navbar-toggler-icon"></span>
+      </button>      
+            <a class="navbar-brand" href="index.html">
+            <img src="./img/codoacodo.png" type="Logo">Conf Bs As</a>
+          
+      <div class="collapse navbar-collapse justify-content-end" id="opciones">   
+        <ul class="navbar-nav me-5">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Los Oradores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">El lugar y la fecha</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Conviértete en Orador</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success" href="tpintegrador2.html">Comprar Tickets</a>
+          </li>            
+        </ul>
+      </div>
+    </div>
+    </nav>
+    </header> 
+
+    <section class="tarjeta-descuentos mt-4 container-fluid">
+      <div class="row justify-content-center mx-auto">
+         <div class="col-xs-12 col-sm-4 col-md-3 col-xl-2 mb-5">
+          <div class="card border border-primary rounded-0 ">
+            <div class="card-body text-center">
+              <h5 class="card-title">Estudiante</h5>
+              <p class="card-text">Tienen un descuento</p>
+              <p class="fw-bold">80%</span>
+              <p>* presentar documentacion</p>
+            </div>
+          </div>
+        </div>
+         <div class="col-xs-12 col-sm-4 col-md-3 col-xl-2 mb-5">
+          <div class="card border border-success text-center rounded-0">
+            <div class="card-body">
+              <h5 class="card-title">Trainee</h5>
+              <p class="card-text">Tienen un descuento</p>
+              <p class="fw-bold">50%</span>
+              <p>* presentar documentacion</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-xl-2 mb-5">
+          <div class="card border border-warning text-center rounded-0">
+            <div class="card-body">
+              <h5 class="card-title">Junior</h5>
+              <p class="card-text">Tienen un descuento</p>
+              <p class="fw-bold">15%</span>
+              <p>* presentar documentacion</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     
+    <section class="formulario-venta w-100 container-fluid mb-4">
+      <p class="text-center mb-0">VENTA</p>
+      <h3 class="text-center fs-2 mb-0">VALOR DE TICKET $200</h3>
+      <form class="formulario needs-validation" method="post">
+        <div class="d-flex w-75 p-0 container-fluid">
+          <div class="w-50 me-1">
+            <label for="nombre" class="form-label"></label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+          </div>
+          <div class="w-50 ms-1">
+            <label for="apellido" class="form-label"></label>
+            <input type="text" class="form-control" id="apellido" aria-describedby="lastname" placeholder="Apellido" minlength="2"required>
+          </div>
+        </div>
+        <div class="w-75 p-0 container-fluid ">
+          <label for="correo" class="form-label"></label>
+          <input type="email" class="form-control" id="correo" aria-describedby="emailHelp"  placeholder="Correo" required>
+        </div>
+        <div class="d-flex w-75 p-0 container-fluid mt-3">
+          <div class="w-50 me-1">
+            <label for="cantidad" class="form-label">Cantidad</label>
+            <input type="number" class="form-control" id="cantidad" min="1" value="1" required
+            aria-describedby="cantidadtickets" placeholder="cantidad">
+          </div>
+          <div class="mb-3 w-50 ms-1">
+            <label for="categoria" class="form-label" >Categoria</label>
+            <select class="form-select" aria-label="Default select example" id="categoria" name="categoria">
+              <option value="Estudiante">Estudiante</option>
+              <option value="Trainee">Trainee</option>
+              <option value="Junior">Junior</option>
+            </select>
+          </div>
+        </div>
+        <div class="w-75 p-0 mt-3 mb-5 container-fluid ">
+          <div class="w-100 bg-primary bg-gradient bg-opacity-25 rounded">
+            <p class="mb-0 p-3">Total a Pagar: $ <span id="total"></span></p>
+          </div>
+        </div>
+        <div class="d-flex w-75 p-0 container-fluid comprar-tickets-button">
+          <div class="w-100 d-flex">
+            <button type="button" onclick="borrarDatos()" class="btn w-50 me-1 text-white btn-success border-0">Borrar</button>
+            <button type="button" onclick="mostrarResumen()" class="btn w-50 ms-1  text-white btn-success border-0" >Resumen</button>
+          </div>
+        </div>
+      </form>  
+      <div id="resumenContainer" class="m-0 w-100" style="display: none;">
+        <div class="container-resumen p-4 w-75 text-light bg-primary bg-gradient
+        border border-primary rounded">
+          <a href="tpintegrador2.html" id="cerrar" class="text-decoration-none text-white d-block
+            m-0 link-opacity-25">X</a>
+          <h2 class="text-center">Resumen de compra</h2>
+          
+          <div id="resumen" class="bg-secondary border p-4 ></div>
+        </div>
+      </div>    
+    </section>
+<footer class="text-center">
+        <div class="container text-white d-flex flex-column justify-content-between align-items-center align-content-center py-4 flex-md-row" id="container-footer">
+          <a class="text-center link-light text-decoration-none" href="#">Preguntas frecuentes</a>
+          <a class="link-light text-decoration-none" href="#">Contáctanos</a>
+          <a class="link-light text-decoration-none" href="#">Prensa</a>
+          <a class="link-light text-decoration-none" href="#">Conferencias</a>
+          <a class="link-light text-decoration-none" href="#">Términos y condiciones</a>
+          <a class="link-light text-decoration-none" href="#">Privacidad</a>
+          <a class="link-light text-decoration-none" href="#">Estudiantes</a>
+        </div>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    
+</body>
+  </html>
